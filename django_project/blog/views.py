@@ -1,6 +1,8 @@
 from django.shortcuts import render
+#importing post from models so we can access post and content that we created in the sql database after migratons using commands and after that we can edit that data using admin panel
+from .models import Post
 
-posts = [
+'''posts = [
     {
         'author': 'CoreyMS',
         'title': 'Blog Post',
@@ -19,13 +21,16 @@ posts = [
     }
 
 
-]
+]'''
 
 
 
 def home(request):
     context = {
-        'posts' : posts
+        'posts' : #posts 
+                    #this is a dummy data of list posts
+                  Post.objects.all()
+                    #this returns the data that we created in database
     }
     return render(request, 'blog/home.html', context)
 
