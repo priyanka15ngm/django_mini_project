@@ -1,4 +1,6 @@
+# from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 #django itself provide a user registration creation form
 #replacing UserCreationForm with UserRegisterForm
 
@@ -20,12 +22,17 @@ def register(request):
           if form.is_valid():
                form.save()
                username =  form.cleaned_data.get('username')
-               messages.success(request, f'Account created for {username}!')
+               messages.success(request, f'Your account has been created! You are now able to login')
                #after submitting return to the home page
-               return redirect('blog-home')
+               # return redirect('blog-home')
+               return redirect('login')
      else:
           #form = UserCreationForm()
           form = UserRegisterForm()
      return render(request, 'users/register.html', {'form':form})
 
+#this is call genova decorator which add extra functinality to profile that the user must be logged in to view this page(profile page)
+@login_required
+def profile(request):
+     return render(request, 'users/profile.html')
 

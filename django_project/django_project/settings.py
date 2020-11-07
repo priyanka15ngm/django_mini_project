@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
+    # 'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,4 +122,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+#when we login it access the url http://127.0.0.1:8000/accounts/profile but we don't created profile so to redirect to the home we are using LOGIN_REDIRECT_URL = 'blog-home'
+LOGIN_REDIRECT_URL = 'blog-home'
+
+LOGIN_URL = 'login'
+
+
