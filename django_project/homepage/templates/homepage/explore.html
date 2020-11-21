@@ -1,0 +1,64 @@
+
+{% extends 'homepage/base.html' %}
+{% block content %}
+{% if profiles %}
+<div class='row justify-content-center'>
+    <h6><strong> Newest accounts</strong></h6>
+</div>
+{% endif %}
+
+<div class='row justify-content-center'  id='profile'>
+{% for profile in profiles %}
+<div class='col-3 padding-0'>
+    <div class='card text-center'>
+
+        <a href="{% url 'public-profile' profile.user.username %}" id='author-link'>
+            <img class='rounded-circle like-image' src="{{profile.image.url}}">
+            <br>
+            {{profile.user.username}}
+        </a>
+
+
+            {% if profile.user.username in followlist %}
+                <button type="button" id='{{ profile.user.pk }}' class="btn btn-secondary follow" bool='true' >Following</button>
+            {% else %}
+                <button type="button" id='{{ profile.user.pk }}' class="btn follow-button follow" bool='false'>Follow</button>
+            {% endif %}
+
+
+
+</div>
+</div>
+{% endfor %}
+</div>
+
+
+<div><b id='explore-text'>Explore</b></div>
+
+    <div class="row" id='profile'>
+        {% for p in posts %}
+            <div class='col-4 padding-0'>
+                <div class='card'>
+            {% if p.images.count > 1 %}
+                {% for image in p.images.all %}
+                    {% if forloop.counter0 == 0 %}
+                        <a href="{% url 'post-detail' p.id %}" id="detail-link">
+                            <img class='card-img-top img-fluid' src='{{ image.modelimage.url }}' alt='images'>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                {% for image in p.images.all %}
+                    <a href="{% url 'post-detail' p.id %}" id="detail-link">
+                        <img class='card-img-top img-fluid' src='{{ image.modelimage.url }}' alt='images'>
+                    </a>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
+
+

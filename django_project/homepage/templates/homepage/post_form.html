@@ -1,0 +1,36 @@
+{% extends 'homepage/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row justify-content-center pt-4">
+    <div class='col-1'></div>
+    <div class='col-10' align="center">
+
+<form id="post_form" method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% for hidden in postForm.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+    <p><h4>Caption</h4></p>
+    {% for field in postForm %}
+     {{ field }} <br />
+    {% endfor %}
+    <div class='pb-4'></div>
+    <small> To submit a post, a photo must be attached to first image box! </small>
+
+    {{ formset.management_form }}
+    {% for form in formset %}
+        {{ form|crispy }}
+    {% endfor %}
+
+<button type="submit" name='submit' class="btn btn-secondary btn-lg post">
+
+    Post
+</button>
+</form>
+</div>
+<div class='col-1'></div>
+</div>
+{% endblock content %}
+
+

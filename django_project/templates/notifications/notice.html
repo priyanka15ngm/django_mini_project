@@ -1,0 +1,30 @@
+{% load humanize %}
+{% load caps %}
+{% if notice.description == 'follow' and not notice.actor == user %}
+    <a href="{% url 'public-profile' notice.actor.username %}" id="author-link">
+        <img class='rounded-circle like-image' src="{{notice.actor.profile.image.url}}">
+    </a>
+        <strong><a href="{% url 'public-profile' notice.actor.username %}" id='author-link'> {{ notice.actor }}</a></strong> {{ notice.verb }}
+        <small> {{ notice.timesince|naturaltime|upper }} </small>
+
+{% elif notice.description == 'message' %}
+    <a href="{% url 'public-profile' notice.actor.username %}" id="message-link">
+        <img class='rounded-circle like-image' src="{{notice.actor.profile.image.url}}">
+    </a>
+        <strong><a href="{% url 'public-profile' notice.actor.username %}" id='black-link'> {{ notice.actor }}</a></strong> {{ notice.verb }}
+    <strong><a href="{% url 'message-form' notice.actor.username %}" id="black-link">
+        message!
+    </a></strong>
+
+
+        <small> {{ notice.timesince|naturaltime|upper }}</small>
+{% elif notice.description == 'comment' or notice.descripton == 'like' %}
+    <a href="{% url 'post-detail' notice.action_object.id %}" id="detail-link">
+        <img class='w3-border like-image' src="{{notice.action_object.images.first.modelimage.url}}">
+    </a>
+        <strong><a href="{% url 'public-profile' notice.actor.username %}" id='author-link'> {{ notice.actor }}</a></strong> {{ notice.verb }}
+        <small> {{ notice.timesince|naturaltime|upper }}</small>
+
+{% endif %}
+
+

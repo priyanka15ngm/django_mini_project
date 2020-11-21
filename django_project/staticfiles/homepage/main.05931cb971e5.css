@@ -1,0 +1,275 @@
+.fa-cog{
+  color:black;
+}
+
+/*.container{
+  height:100%;
+  min-height: 100%;
+}*/
+
+#update-delete{
+  margin-top: 150px;
+}
+
+#cur-brand {
+    font-family: 'Kaushan Script', cursive;
+    color: black;
+    font-size: 25px;
+}
+#bar-brand {
+    color: black;
+    font-size:25px;
+}
+
+#author-link {
+  color:black;
+  text-decoration:none;
+}
+
+#message-link {
+  text-decoration: none;
+  color:white;
+}
+
+.comment-text {
+  word-wrap:break-word;
+}
+
+#black-link {
+  color: black;
+  text-decoration: none;
+}
+
+.like-image{
+  height: 54px;
+  width: 54px;
+}
+
+.list-div{
+  margin-bottom: 5px;
+}
+
+
+#more-comments{
+  text-decoration:none;
+  color: #999999;
+}
+
+#explore-text{
+    color:#A99999;
+    font-size: 12px;
+    padding-left: 14px;
+}
+
+#search-bar{
+    height: 28px;
+    width: 215px;
+    background-color: #FAFAFA;
+}
+
+#explore-layout{
+    margin-left: : 0;
+    margin-right: 0;
+}
+
+/*
+#explore-img{
+    width: 293px;
+    height: 293px;
+    margin-right: 14px;
+    margin-left: 14px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}*/
+
+
+body{
+    background-color: #FAFAFA;
+}
+
+
+
+.navbar-nav> li{
+  padding-left:10px;
+  padding-right:10px;
+}
+
+nav {
+  border-bottom: 1px solid #E6E6E6;
+
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.feed {
+  background-color: white;
+}
+
+.fit-image{
+width: 100%;
+object-fit: cover;
+}
+
+@media (min-width: 1200px) {
+    #navbar{
+        max-width: 1010px;
+    }
+}
+
+ small {
+    color: #999999;
+ }
+
+ul li a{
+    color: #55CB93;
+}
+
+.post-buttons{
+  color: #55CB93;
+}
+
+.input-mysize {
+    width: 215px;
+}
+
+.navbar-custom{
+    background-color: #FFFFFF
+}
+
+#postdivider {
+    border-bottom: 1px solid #E6E6E6;
+}
+
+div b{
+  padding-left:5px;
+}
+
+small {
+  padding-left: 5px;
+}
+
+
+.post-text-indent{
+  padding-left: 5px;
+  margin-bottom: -17px;
+}
+
+#post{
+    border-left:1px solid #E6E6E6;
+    border-right: 1px solid #E6E6E6;
+    border-top: 1px solid #E6E6E6;
+    background-color: #FFFFFF;
+}
+
+.padding-0{
+    padding-right:0;
+    padding-left:0;
+}
+
+.article-img {
+  height: 34px;
+  width: 34px;
+  margin-right: 5px;
+  margin-bottom:4px;
+  margin-left:12px;
+  margin-top:4px;
+}
+
+.account-img {
+  height: 150px;
+  width: 150px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+  margin-top: 10px;
+}
+
+
+
+
+.message-green-text {
+  color: #FFFFFF;
+  background-color: #55CB93;
+  text-decoration: none;
+  position:relative;
+  border-radius: 8px;
+  text-align: right;
+}
+
+.message-white-text {
+  color: black;
+  background-color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 8px;
+  postion:relative;
+  border: black solid 1px;
+}
+.comment-scroll {
+  max-height: 220px;
+  overflow-y: scroll;
+  margin-bottom: 35px;
+}
+
+.post-detail-comment{
+  margin-bottom: 0px;
+  margin-top:0px;
+}
+
+
+#post-detail-time{
+  margin-bottom: 3px
+}
+
+.follow-button {
+  background-color: #55CB93;
+}
+
+.green-button {
+  background-color: #55CB93;
+}
+
+.current-page {
+  color : white;
+}
+
+.current-page:hover {
+  color:#6C757D;
+}
+
+body {
+    padding-top: 65px;
+    padding-bottom: 75px;
+}
+
+@media (min-width: 768px){
+    .nav-footer {
+        display : none;
+        visibility : hidden;
+    }
+}
+
+.navbar-footer>li {          /* <- this affects just my footer navbar */
+    display: inline-block;
+}
+
+.navbar-footer{
+  min-height: 65px;
+}
+
+#profile{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.notify-div{
+  padding-top: 4px;
+  padding-bottom:4px;
+}
+
+.search-list{
+  flex-direction: column-reverse;
+}
+
+

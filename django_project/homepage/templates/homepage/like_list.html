@@ -1,0 +1,20 @@
+{% extends 'homepage/base.html' %}
+{% block content %}
+<div class='row justify-content-center'> <h1>Likes</h1> </div>
+
+    {% for like in object_list %}
+    <div id='postdivider'></div>
+    <div class='notify-div'>
+        <a href="{% url 'public-profile' like.liker.username %}" id='author-link'>
+           <img class='rounded-circle like-image' src="{{like.liker.profile.image.url}}"><b>{{ like.liker }} </b>
+        <small>
+           {{like.liker.profile.first_name}} {{like.liker.profile.last_name}}
+       </small>
+        </a>
+    </div>
+
+    {% empty %}
+    <p> No likes on this post! </p>
+    {% endfor %}
+
+{% endblock content %}

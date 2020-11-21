@@ -1,28 +1,33 @@
-<!--extend the base template then write the content block-->
-
-{% extends "blog/base.html" %}
+{% extends 'homepage/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
-<div class="content-section">
-    <form method="POST">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Log In</legend>
-
-            {{ form.as_p }}
-
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-info" type="submit ">Login</button>
-
+<style>
+.container1{
+    background-image: url("https://wallpapercave.com/wp/wp6028909.png");
+  background-blend-mode: lighten;
+}
+</style>
+    <div class='container1' >
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group" >
+                <legend class='border-bottom mb-4 text-center'>Log In with the Demo Account or create your own!</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class='form-group'>
+                <button class='btn btn-outline-info' type='submit' >Login</button>
+                <small class="text-muted ml-2">
+                    <a href="{% url 'password_reset' %}">
+                        Forgot your password?
+                    </a>
+                </small>
+            </div>
+        </form>
+        <div class='border-top pt-3'>
+            <small class='text-muted'>
+            Don't Have An Account <a class='ml-2' href='{% url 'register' %}'>Sign Up Now</a>
+        </small>
         </div>
 
-    </form>
-    <div class="border-top pt-3">
-        <small class="text-muted">
-            Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
-        </small>
     </div>
-</div>
-
-
 {% endblock content %}

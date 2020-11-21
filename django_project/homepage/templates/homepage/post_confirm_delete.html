@@ -1,0 +1,14 @@
+{% extends 'homepage/base.html' %}
+{% block content %}
+    <div class='row justify-content-center' id='update-delete'>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="input-group mb-3">
+                <div class='input-group-append'>
+                <button class='btn btn-outline-danger' type='submit' >Delete Post</button>
+                <a class='btn btn-outline-secondary' href="{% url 'post-detail' post.id %}">Cancel</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}

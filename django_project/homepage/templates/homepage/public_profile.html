@@ -1,0 +1,55 @@
+{% extends 'homepage/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class='row' id='profile'>
+            <img class="rounded-circle account-img" src="{{ username.profile.image.url }}">
+            <div class="media-body">
+                <h2 class='account-heading'>{{ username }}
+                {% if user == username %}
+                <a href="{% url 'profile' %}" id="profedit-link">
+                    <i class="fas fa-cog"></i>
+                </a>
+                </h2>
+            {% endif %}
+                {% if user != username %}
+                {% if followcheck %}
+                    <button type="button" id='{{ username.id }}' class="btn btn-secondary follow" bool='true' >Following</button>
+                {% else %}
+                    <button type="button" id='{{ username.id }}' class="btn follow-button follow" bool='false'>Follow</button>
+                {% endif %}
+                {% endif %}
+
+
+                <h3>{{ posts.count }} posts</h3>
+                <a href="{% url 'follower-list' username %}" id='author-link'>
+
+                    <h3 id=followers>{{ followers.count }} followers</h3>
+
+                </a>
+                <a href="{% url 'following-list' username %}" id='author-link'>
+                    <h3>{{ followees.count }} following</h3>
+                </a>
+                <h5>{{ username.profile.first_name }} {{ username.profile.last_name }}</h5>
+                <p class='text-secondary'>{{ username.profile.bio }}</p>
+                {% if not user == username %}
+                <a href="{% url 'message-form' username %}" class="btn btn-secondary">Message </a>
+                {% endif %}
+            </div>
+<div id='postdivider'></div>
+</div>
+    <div class='row' id='profile'>
+            {% for p in posts %}
+                <div class='col-4 padding-0'>
+                    <div class='card'>
+                {% for image in p.images.all %}
+                    {% if forloop.counter0 == 0 %}
+                    <a href="{% url 'post-detail' p.id %}" id="detail-link">
+                        <img class='card-img-top img-fluid' src={{ image.modelimage.url }} alt='images'>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+{% endblock content %}

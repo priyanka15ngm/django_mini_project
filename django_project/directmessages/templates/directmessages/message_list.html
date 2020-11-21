@@ -1,0 +1,21 @@
+{% extends 'homepage/base.html' %}
+{% block content %}
+    <div class='row justify-content-center'> <h1>Messages</h1> </div>
+        {% for message in sender_qs %}
+            <a href="{% url 'message-form' message.sender.username %}" id='black-link'>
+                <div class='row' id='profile'>
+                    <div class='col align-self-center'>
+                    <img class='d-inline rounded-circle like-image' src="{{message.sender.profile.image.url}}">
+                    <p class='d-inline'> {{ message.sender }} <strong> {{ message.content|truncatewords:4 }}</strong></p>
+
+                </div>
+            </div>
+                <div class='row justify-content-end' id='profile'>
+                    <small>{{ message.date_created|date:"M d h:i A" }}</small>
+                </div>
+            </a>
+        {% empty %}
+            <h3>No messages!</h3>
+    {% endfor %}
+
+{% endblock content %}

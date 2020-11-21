@@ -1,0 +1,16 @@
+{% extends 'homepage/base.html' %}
+{% block content %}
+<div class='row justify-content-center'> <h1>Notifications</h1> </div>
+
+<div id='postdivider'></div>
+
+{% for notice in notifications %}
+        <div class='notify-div'>
+         {% include 'notifications/notice.html' %}
+        </div>
+{% empty %}
+<h2> No notifications! </h2>
+{% endfor %}
+
+
+{% endblock content %}

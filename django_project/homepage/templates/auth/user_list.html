@@ -1,0 +1,41 @@
+
+{% extends 'homepage/base.html' %}
+{% block content %}
+
+<div class='search-list'>
+{% if object_list or posts %}
+
+<div class='row justify-content-center'>
+    <h1>Search Results for "<i>{{query}}"</i></h1>
+{% else %}
+    <h1>No Search Results for<i> "{{query}}"</i></h1>
+{% endif %}
+</div>
+
+{% if object_list %}
+<h2>Users</h2>
+    {% for i in object_list %}
+    <div class='row list-div' id='profile'>
+            <a href="{% url 'public-profile' i.username %}" id='author-link'>
+               <img class='rounded-circle like-image' src="{{ i.profile.image.url}}"><b>{{ like.liker }} </b>
+               {{i}}
+
+            </a>
+    </div>
+    {% endfor %}
+{% endif %}
+
+{% if posts %}
+    <h2>Posts</h2>
+    {% for i in posts %}
+    <div class='row list-div' id='profile'>
+        <a href="{% url 'post-detail' i.pk %}" id='black-link'>
+       <img class='w3-border like-image' src="{{ i.images.first.modelimage.url}}"><b> </b>
+       "{{i|truncatechars:20}}" by: {{i.author}}
+        </a>
+    </div>
+    {% endfor %}
+
+{% endif %}
+</div>
+{% endblock content %}
