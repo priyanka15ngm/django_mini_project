@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'caseygram.urls'
+ROOT_URLCONF = 'kritarthgram.urls'
 
 TEMPLATES = [
     {
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'caseygram.wsgi.application'
+WSGI_APPLICATION = 'kritarthgram.wsgi.application'
 
 
 # Database
