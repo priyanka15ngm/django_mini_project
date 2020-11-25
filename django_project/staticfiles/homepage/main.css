@@ -1,7 +1,14 @@
 .fa-cog{
   color:black;
 }
-
+body {
+  background: #fafafa;
+  color: #333333;
+  margin-top: 5rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-image: url("https://pluspng.com/img-png/png-employee-how-many-of-your-existing-staff-would-you-re-employ-if-you-had-the-chance-again-anderson-scott-1832.png");
+  background-blend-mode: lighten;
+}
 label.col-form-label {
   display: none;
 }

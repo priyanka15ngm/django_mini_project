@@ -154,7 +154,7 @@ SECRET_KEY = 'b2vu^v2t(0-n43(6%q^vq3sp9_u5)yy(ezgzfvmw8ield9js&z'
 DEBUG =True
 
 # for s3
-AWS_S3_FILE_OVERWRITE = False
+#AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
