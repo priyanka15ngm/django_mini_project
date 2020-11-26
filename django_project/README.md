@@ -9,7 +9,7 @@ cd projects
 
     Download a copy
 
-git clone https://github.com/kritarth2121/instagramclone.git
+git clone https://github.com/priyanka15ngm/django_mini_project.git
 
     Install a virtual environment
 
