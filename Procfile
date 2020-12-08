@@ -1,1 +1,1 @@
-web: gunicorn django_project.kritarthgram.wsgi
+web: gunicorn caseygram.wsgi
