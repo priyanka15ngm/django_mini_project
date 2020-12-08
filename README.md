@@ -1,6 +1,6 @@
 kritarthgram is an Instagram clone built using Django, Bootstrap, and jQuery. I recreated many of Instagrams features including: CRUD capabilties on posts, explore page, likes, comments, direct messaging, profiles, profiles pictures, bios, search bar, and followers/following categories. I used Bootstrap to recreate the UX of instagrams desktop page that changes for mobile use. jQuery is used to make real-time like/follower/following updates using AJAX calls.
 
-Check out the website at (https://kritarthgram.herokuapp.com/)
+Check out the website at (https://kritarthgram2.herokuapp.com/)
 Getting Started
 
     Open up Terminal, and go into the directory where you want Kritarthgram to run
@@ -9,7 +9,7 @@ cd projects
 
     Download a copy
 
-git clone https://github.com/kritarth2121/instagramclone.git
+git clone https://github.com/priyanka15ngm/django_mini_project.git
 
     Install a virtual environment
 
@@ -25,31 +25,6 @@ mkdir ~/venvs
 
     Generate a secret key for your django app using
 
-python
-
-then
-
-from django.utils.crypto import get_random_string
-
-then
-
-chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
-
-then
-
-get_random_string(50, chars)
-
-and then
-
-quit()
-
-    Copy this result and in your settings.py file replace
-
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-
-with
-
-SECRET_KEY = 'generated key'
 
     Go into the directory containing 'requirements.txt'
 
@@ -75,19 +50,6 @@ python manage.py runserver
 
     Now go to http://localhost:8000/ in your browser to view kritarthgram
 
-Unit Tests
-
-I have a handful of unit tests written for testing messages and posts.
-
-class MessageTestCase(TestCase):
-
-    def create_message(self, sender=User.objects.get(id=1), receiver=User.objects.get(id=2), content='test message'):
-        return Message.objects.create(sender=sender, receiver=receiver, content=content, date_created=timezone.now())
-    
-    def test_message_creation(self):
-        message = self.create_message()
-        self.assertTrue(isinstance(message, Message))
-        self.assertEqual(message.__str__(), message.content)
 
 Deployment
 
