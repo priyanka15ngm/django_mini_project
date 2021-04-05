@@ -146,19 +146,23 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
 
 # DJANGO CASEYGRAM VARIABLES:
-AWS_ACCESS_KEY_ID = 'AKIAQM3ER2ROBSHBFSPE'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'AKIAQM3ER2ROIEPW2O4O'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'productivity21'
-
+AWS_S3_REGION_NAME = 'ap-south-1'
+AWS_S3_SIGNATURE_VERSION='s3v4'
+#AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 SECRET_KEY = 'b2vu^v2t(0-n43(6%q^vq3sp9_u5)yy(ezgzfvmw8ield9js&z'
-DEBUG =True
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+AWS_DEFAULT_ACL = 'public-read'
 
-# for s3
-#AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
+AWS_LOCATION = 'static'
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'caseygram.storages.MediaStore'
 
 #auto sets configs for postgres db on heroku
 django_heroku.settings(locals())
